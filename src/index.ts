@@ -1,22 +1,30 @@
 import { createConnection } from 'typeorm';
 import "reflect-metadata";
-import {User} from "./entity/User";
+import * as session from 'express-session';
+import { register, login } from './routes/auth';
 
 (async () => {
     await createConnection();
-    console.log("Inserting a new user into the database...");
-    const user = new User();
-    user.firstName = "Timber";
-    user.lastName = "Saw";
-    user.age = 25;
-    user.save();
-    console.log("Saved a new user with id: " + user.id);
 
-    console.log("Loading users from the database...");
+    var express = require('express');
+    var app = express();
+    var port = process.env.PORT || 8080;
 
-    const users = await User.find();
+    var bodyParser = require('body-parser');
+    app.use(bodyParser.json());
 
-    console.log("Loaded users: ", users);
+    app.use(session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: true,
+    }))
 
-    console.log("Here you can setup and run express/koa/any other framework.");
+    app.post('/register', register)
+    app.post('/login', login)
+    app.get('/login/test', (req, res) => {
+        res.send(req.session.username);
+    })
+
+    app.listen(port);
+    console.log('Server started! At http://localhost:' + port);
 })();
