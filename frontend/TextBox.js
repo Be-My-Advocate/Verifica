@@ -28,7 +28,6 @@ const TextBox = props => {
         autoCompleteType={props.type}
         secureTextEntry={props.password}
         style={styles.inputBox}
-        onChangeText={props.onChange}
       />
     </View>
   );
