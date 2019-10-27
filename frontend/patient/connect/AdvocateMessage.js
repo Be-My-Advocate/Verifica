@@ -4,23 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 const styles = StyleSheet.create({
   image: {
-    width: 75,
-    height: 75,
+    width: 100,
+    height: 100,
     borderColor: 'pink',
     borderWidth: 1,
-    borderRadius: 35
+    borderRadius: 50
   },
   container: {
     backgroundColor: '#eee',
     padding: 10,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 12,
     alignItems: 'center',
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 2,
+    marginRight: 2,
     marginTop: 7,
     marginBottom: 7
   },

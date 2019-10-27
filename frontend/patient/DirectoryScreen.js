@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 
 const DirectoryScreen = () => {
   const [mapView, setMapView] = React.useState(false);
-  const [searchText, setSearchText] = React.useState('');
+  const [searchText, setSearchText] = React.useState('Search');
   const [region, setRegion] = React.useState({
     latitude: genericData.vegasLocation.lat,
     longitude: genericData.vegasLocation.lng,
