@@ -4,3 +4,7 @@ node_modules/
 build/
 tmp/
 temp/
+
+yarn.lock
+package-lock.json
+database.sqlite
