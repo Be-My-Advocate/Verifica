@@ -78,19 +78,19 @@ const RegisterScreen = props => {
         type={'email'}
         password={false}
         label={'Enter Email'}
-        onChange={setEmail}
+        value={'jenni@gmail.com'}
       />
       <TextBox
         type={'password'}
         label={'Enter Password'}
         password
-        onChange={setPassword}
+        value={'setPassword'}
       />
       <TextBox
         type={'password'}
         label={'Retype Password'}
         password
-        onChange={setPassword2}
+        value={'setPassword2'}
       />
       {error !== '' && <Text>{error}</Text>}
       <TouchableOpacity style={styles.button} onPress={() => signup()}>
