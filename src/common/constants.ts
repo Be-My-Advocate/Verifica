@@ -1,0 +1,1 @@
+export const DAILY_CO_API_KEY = "cc66bcc2bf3c51b7e66f223dd7ac286e082f38c7be51c51c676f203e594526f1";
