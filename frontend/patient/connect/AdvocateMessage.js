@@ -1,30 +1,43 @@
-import React from 'react'
-import {StyleSheet, Text, Image, View, TouchableOpacity} from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import React from 'react';
+import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 const styles = StyleSheet.create({
-  image: {width: 75, height: 75, borderColor: 'pink', borderWidth: 1, borderRadius: 35},
+  image: {
+    width: 100,
+    height: 100,
+    borderColor: 'pink',
+    borderWidth: 1,
+    borderRadius: 50
+  },
   container: {
     backgroundColor: '#eee',
     padding: 10,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 12,
     alignItems: 'center',
-    margin: 20,
+    marginLeft: 2,
+    marginRight: 2,
+    marginTop: 7,
+    marginBottom: 7
   },
   padding: {
     padding: 10
   }
-})
+});
 
-const AdvocateMessage = (props) => {
-  return <TouchableOpacity onPress={props.press} style={styles.container}>
-    <Image source={props.advocate.photo} style={styles.image}/>
-    <Text style={styles.padding}>Send a message to {props.advocate.fname}</Text>
+const AdvocateMessage = props => {
+  return (
+    <TouchableOpacity onPress={props.press} style={styles.container}>
+      <Image source={props.advocate.photo} style={styles.image} />
+      <Text style={styles.padding}>
+        Send a message to {props.advocate.fname}
+      </Text>
     </TouchableOpacity>
-}
+  );
+};
 
-export default AdvocateMessage
+export default AdvocateMessage;
