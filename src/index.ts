@@ -2,6 +2,7 @@ import { createConnection } from 'typeorm';
 import "reflect-metadata";
 import * as session from 'express-session';
 import { register, login } from './routes/auth';
+import { keys, sendMessage } from './routes/signal';
 
 (async () => {
     await createConnection();
@@ -15,7 +16,7 @@ import { register, login } from './routes/auth';
 
     app.use(session({
         secret: 'keyboard cat',
-        resave: false,
+        resave: false, 
         saveUninitialized: true,
     }))
 
@@ -24,6 +25,10 @@ import { register, login } from './routes/auth';
     app.get('/login/test', (req, res) => {
         res.send(req.session.username);
     })
+
+    app.post('/keys', keys)
+    // app.get('/users')
+    app.post('/users/:user/send', sendMessage)
 
     app.listen(port);
     console.log('Server started! At http://localhost:' + port);

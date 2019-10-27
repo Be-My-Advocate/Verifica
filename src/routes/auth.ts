@@ -1,5 +1,6 @@
 import * as argon2 from "argon2";
-import { User } from "../entity/User";
+import * as fnv from 'fnv-plus';
+import { User } from "../entity/user";
 
 export const register = async (req, res) => {
     const username = req.body.username;
@@ -19,14 +20,19 @@ export const register = async (req, res) => {
         timeCost: 1,
     })
 
-    const u = new User();
+    let u = new User();
     u.username = username;
     u.password = hash;
+    u.accountId = parseInt(fnv.hash(username, 64).dec())
+    u.deviceId = req.body.deviceId;
 
     await u.save();
 
     req.session.username = username;
-    res.status(200).send()
+    res.status(200).send({
+        accountId: u.accountId,
+        deviceId: u.deviceId
+    })
 }
 
 export const login = async (req, res) => {
