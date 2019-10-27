@@ -19,30 +19,30 @@ const styles = StyleSheet.create({
 
 const advocateLocationArray = [
   {
-    key: 5,
-    username: 'aaa',
-    password: 'aaa',
-    fname: 'Samantha',
-    lname: 'Lane',
-    gender: 'Female',
-    email: 'sam@gmail.com',
-    role: 'advocate',
-    photo: require('../images/womantwo.jpg'),
-    rating: 4,
-    location: { lat: 36.1196, lng: -115.1581 }
-  },
-  {
-    key: 6,
+    id: 8,
     username: 'bbb',
     password: 'bbb',
-    fname: 'Matt',
-    lname: 'Williamson',
+    fname: 'Brandon',
+    lname: 'Lampkin',
     gender: 'Male',
-    email: 'matt@gmail.com',
-    role: 'doctor',
-    photo: require('../images/mantwo.jpg'),
-    rating: 1,
-    location: { lat: 36.1136, lng: -115.1621 }
+    email: 'brand@gmail.com',
+    role: 'advocate',
+    photo: require('../images/manthree.jpg'),
+    rating: 3,
+    location: { lat: 36.1296, lng: -115.1583 }
+  },
+  {
+    id: 9,
+    username: 'bbb',
+    password: 'bbb',
+    fname: 'Stephanie',
+    lname: 'Hall',
+    gender: 'Female',
+    email: 'steph@gmail.com',
+    role: 'advocate',
+    photo: require('../images/womanfour.jpg'),
+    rating: 2,
+    location: { lat: 36.1396, lng: -115.1573 }
   }
 ];
 
