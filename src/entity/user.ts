@@ -11,7 +11,7 @@ export class User extends BaseEntity {
     password: string;
     
     @Column()
-    accountId: number;
+    registrationId: number;
 
     @Column()
     deviceId: number;
@@ -25,20 +25,21 @@ export class User extends BaseEntity {
     @Column("simple-json", { nullable: true })
     signedPreKey: SignedKey;
 
-    @OneToMany(type => Message, message => message.sender)
+    @OneToMany(type => Message, message => message.sender, {eager: true})
     sent: Message[];
 
-    @OneToMany(type => Message, message => message.recipient)
+    @OneToMany(type => Message, message => message.recipient, {eager: true})
     received: Message[];
 
 }
 
 interface Key {
-    id: number;
-    key: string;
+    keyId: number;
+    publicKey: string;
 }
 
 interface SignedKey {
+    keyId: number;
     signature: string;
-    key: Key;
+    publicKey: string;
 }

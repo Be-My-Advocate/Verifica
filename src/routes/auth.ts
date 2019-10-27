@@ -18,14 +18,14 @@ export const register = async (req, res) => {
     let u = new User();
     u.username = username;
     u.password = hash;
-    u.accountId = parseInt(fnv.hash(username, 64).dec())
+    u.registrationId = req.body.registrationId // parseInt(fnv.hash(username).dec())
     u.deviceId = req.body.deviceId;
 
     await u.save();
 
     req.session.username = username;
     res.status(200).send({
-        accountId: u.accountId,
+        registrationId: u.registrationId,
         deviceId: u.deviceId
     })
 }
@@ -45,7 +45,16 @@ export const login = async (req, res) => {
         res.status(401).send('Username/Password could not be verified')
         return
     }
+    
+    // for (const m of user.received) {
+    //     m.remove()
+    // }
 
+    // for (const m of user.sent) {
+    //     m.remove()
+    // }
     req.session.username = username;
-    res.status(200).send()
+    res.status(200).send({
+        registrationId: user.registrationId
+    })
 }
