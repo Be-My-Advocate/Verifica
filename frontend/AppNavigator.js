@@ -24,11 +24,11 @@ const AppNavigator = createStackNavigator(
     defaultNavigationOptions: {
       headerTitle: () => <View style={styles.headerStyle}>
         <Text style={styles.textStyle}>
-               Be My Advocate
+               Verifica
         </Text>
       </View>,
       headerStyle: {
-        backgroundColor: '#4B0082',
+        backgroundColor: '#333',
         fontcolor: 'white'
       },
     },

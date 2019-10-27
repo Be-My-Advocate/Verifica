@@ -7,8 +7,8 @@ const DirectoryScreen = () => {
   const [searchText, setSearchText] = React.useState('')
 
   return <View>
-  <SearchBar searchText={searchText} setSearchText={setSearchText}/>
-  <Text>Directory</Text>
+    <SearchBar searchText={searchText} setSearchText={setSearchText}/>
+    <Text>Directory</Text>
   </View>
 }
 
