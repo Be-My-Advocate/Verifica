@@ -2,7 +2,7 @@ import { createConnection } from 'typeorm';
 import "reflect-metadata";
 import * as session from 'express-session';
 import { register, login } from './routes/auth';
-import { keys } from './routes/signal';
+import { keys, sendMessage } from './routes/signal';
 
 (async () => {
     await createConnection();
@@ -28,7 +28,7 @@ import { keys } from './routes/signal';
 
     app.post('/keys', keys)
     // app.get('/users')
-    // app.post('/users/:user/send')
+    app.post('/users/:user/send', sendMessage)
 
     app.listen(port);
     console.log('Server started! At http://localhost:' + port);
