@@ -2,6 +2,8 @@ import React from 'react'
 import {StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native'
 import SearchBar from './SearchBar'
 import AdvocateMessage from './connect/AdvocateMessage'
+import MessageScreen from './connect/MessageScreen'
+import MessageNavBar from '../MessageNavBar'
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
@@ -106,20 +108,28 @@ const advocateLocationArray = [
   },
 ]
 
-const ConnectScreen = () => {
+const ConnectScreen = (props) => {
   const [searchText, setSearchText] = React.useState('')
+  // const [toMessage, setToMessage] = React.useState(true)
+  // const [currentAdvocate, setCurrentAdvocate] = React.useState('')
+
+  // const setMessage = (advocate) => {
+  //   setCurrentAdvocate(advocate)
+  //   setToMessage(false)
+  // }
 
   return <View>
-    <SearchBar searchText={searchText} setSearchText={setSearchText}/>
+
+          <SearchBar searchText={searchText} setSearchText={setSearchText}/>
+          <View style={styles.padHealthRecords}>
+          <Text style={styles.headerText}>Messages</Text>
+          <FlatList data={advocateLocationArray} renderItem={({item}) => <View>
+          <AdvocateMessage press={() => props.navigation.push('message')} advocate={item}/>
+          </View>} keyExtractor={item => item.data}
+          />
+        </View>
 
 
-    <View style={styles.padHealthRecords}>
-      <Text style={styles.headerText}>Messages</Text>
-      <FlatList data={advocateLocationArray} renderItem={({item}) => <View>
-        <AdvocateMessage advocate={item}/>
-      </View>} keyExtractor={item => item.data}
-      />
-    </View>
   </View>
 }
 

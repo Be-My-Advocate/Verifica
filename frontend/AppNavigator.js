@@ -5,6 +5,7 @@ import {StyleSheet, Text, Image, View} from 'react-native'
 
 import HomeScreen from './HomeScreen'
 import PatientNavBar from './PatientNavBar'
+import MessageNavBar from './MessageNavBar'
 
 const styles = StyleSheet.create({
   image: {width: 20, height: 20, borderColor: 'pink', borderWidth: 1, borderRadius: 12},
@@ -17,6 +18,7 @@ const AppNavigator = createStackNavigator(
   {
     screen: HomeScreen,
     patient: PatientNavBar,
+    message: MessageNavBar,
     // advocate: AdvocateNavBar,
   },
   {

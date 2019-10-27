@@ -1,12 +1,13 @@
 import React from 'react'
 import { createAppContainer } from 'react-navigation';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PatientScreen from './patient/PatientScreen'
 import DirectoryScreen from './patient/DirectoryScreen'
 import RecordsScreen from './patient/RecordsScreen'
 import ConnectScreen from './patient/ConnectScreen'
 import LearnScreen from './patient/LearnScreen'
+import MessageNavBar from './MessageNavBar'
 
 const PatientNavBar = createBottomTabNavigator(
   {

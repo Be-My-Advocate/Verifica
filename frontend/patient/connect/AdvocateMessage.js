@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 })
 
 const AdvocateMessage = (props) => {
-  return <TouchableOpacity style={styles.container}>
+  return <TouchableOpacity onPress={props.press} style={styles.container}>
     <Image source={props.advocate.photo} style={styles.image}/>
     <Text style={styles.padding}>Send a message to {props.advocate.fname}</Text>
     </TouchableOpacity>
