@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontWeight:'500'
   },
   inputBox:{
-    borderColor:'#4B0082',
+    borderColor:'#333',
     borderWidth:1,
     fontSize: 24,
     padding:12,

@@ -1,16 +1,22 @@
-import React from 'react'
-import {StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native'
-import SearchBar from './SearchBar'
-import AdvocateMessage from './connect/AdvocateMessage'
-import MessageScreen from './connect/MessageScreen'
-import MessageNavBar from '../MessageNavBar'
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList
+} from 'react-native';
+import SearchBar from './SearchBar';
+import AdvocateMessage from './connect/AdvocateMessage';
+import MessageScreen from './connect/MessageScreen';
+import MessageNavBar from '../MessageNavBar';
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
-    paddingBottom: 20,
+    paddingBottom: 20
   },
   padHealthRecords: {
-    margin: 20,
+    margin: 20
   }
 });
 
@@ -26,7 +32,7 @@ const advocateLocationArray = [
     role: 'doctor',
     photo: require('../images/manone.jpg'),
     rating: 5,
-    location: {lat: 36.1162, lng: -115.1745},
+    location: { lat: 36.1162, lng: -115.1745 }
   },
   {
     id: 4,
@@ -39,7 +45,7 @@ const advocateLocationArray = [
     role: 'advocate',
     photo: require('../images/womanone.jpg'),
     rating: 3,
-    location: {lat: 36.1279, lng: -115.1610},
+    location: { lat: 36.1279, lng: -115.161 }
   },
   {
     id: 5,
@@ -52,7 +58,7 @@ const advocateLocationArray = [
     role: 'advocate',
     photo: require('../images/womantwo.jpg'),
     rating: 4,
-    location: {lat: 36.1196, lng: -115.1581},
+    location: { lat: 36.1196, lng: -115.1581 }
   },
   {
     id: 6,
@@ -65,7 +71,7 @@ const advocateLocationArray = [
     role: 'doctor',
     photo: require('../images/mantwo.jpg'),
     rating: 1,
-    location: {lat: 36.1136, lng: -115.1621},
+    location: { lat: 36.1136, lng: -115.1621 }
   },
   {
     id: 7,
@@ -78,7 +84,7 @@ const advocateLocationArray = [
     role: 'doctor',
     photo: require('../images/womanthree.jpg'),
     rating: 5,
-    location: {lat: 36.1186, lng: -115.1571},
+    location: { lat: 36.1186, lng: -115.1571 }
   },
   {
     id: 8,
@@ -91,7 +97,7 @@ const advocateLocationArray = [
     role: 'advocate',
     photo: require('../images/manthree.jpg'),
     rating: 3,
-    location: {lat: 36.1296, lng: -115.1583},
+    location: { lat: 36.1296, lng: -115.1583 }
   },
   {
     id: 9,
@@ -104,27 +110,33 @@ const advocateLocationArray = [
     role: 'advocate',
     photo: require('../images/womanfour.jpg'),
     rating: 2,
-    location: {lat: 36.1396, lng: -115.1573},
-  },
-]
+    location: { lat: 36.1396, lng: -115.1573 }
+  }
+];
 
-const ConnectScreen = (props) => {
-  const [searchText, setSearchText] = React.useState('')
+const ConnectScreen = props => {
+  const [searchText, setSearchText] = React.useState('');
 
+  return (
+    <View>
+      <SearchBar searchText={searchText} setSearchText={setSearchText} />
+      <View style={styles.padHealthRecords}>
+        <Text style={styles.headerText}>Messages</Text>
+        <FlatList
+          data={advocateLocationArray}
+          renderItem={({ item }) => (
+            <View>
+              <AdvocateMessage
+                press={() => props.navigation.push('message')}
+                advocate={item}
+              />
+            </View>
+          )}
+          keyExtractor={item => item.data}
+        />
+      </View>
+    </View>
+  );
+};
 
-  return <View>
-
-          <SearchBar searchText={searchText} setSearchText={setSearchText}/>
-          <View style={styles.padHealthRecords}>
-          <Text style={styles.headerText}>Messages</Text>
-          <FlatList data={advocateLocationArray} renderItem={({item}) => <View>
-          <AdvocateMessage press={() => props.navigation.push('message')} advocate={item}/>
-          </View>} keyExtractor={item => item.data}
-          />
-        </View>
-
-
-  </View>
-}
-
-export default ConnectScreen
+export default ConnectScreen;
