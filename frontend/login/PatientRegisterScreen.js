@@ -46,15 +46,15 @@ const RegisterScreen = props => {
   const [error, setError] = React.useState('');
 
   const signup = () => {
-    if (email !== '' && password !== '' && password2 !== '') {
-      if (password === password2) {
-        _storeData();
-        props.navigation.push('patient');
-      } else {
-        setError('Passwords Dont Match');
-      }
+    if (password === password2) {
+      _storeData();
+      props.navigation.push('patient');
     } else {
-      setError('Please Fill In All Field');
+      setError('Passwords Dont Match');
+    }
+
+    if (!password.length || !password2.length) {
+      setError('Please Fill In All Fields');
     }
   };
 
@@ -84,13 +84,13 @@ const RegisterScreen = props => {
         type={'password'}
         label={'Enter Password'}
         password
-        value={'setPassword'}
+        value={'HCKHLTH'}
       />
       <TextBox
         type={'password'}
         label={'Retype Password'}
         password
-        value={'setPassword2'}
+        value={'HCKHLTH'}
       />
       {error !== '' && <Text>{error}</Text>}
       <TouchableOpacity style={styles.button} onPress={() => signup()}>
