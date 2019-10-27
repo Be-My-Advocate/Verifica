@@ -78,12 +78,13 @@ const PatientScreen = () => {
     </View>
 
     <View>
-      <FlatList data={genericData.calendarData} renderItem={({item}) => <View>
-        <View style={{margin: 10}}>
-          <Text>{item.date}</Text>
-          <View style={styles.border}><Text style={styles.calendarBubble}>{item.data}</Text></View>
-        </View>
-      </View>} keyExtractor={item => item.data}
+      <FlatList data={genericData.calendarData} renderItem={({item}) => 
+        <View key={item.date}>
+          <View style={{margin: 10}}>
+            <Text>{item.date}</Text>
+            <View style={styles.border}><Text style={styles.calendarBubble}>{item.data}</Text></View>
+          </View>
+        </View>} keyExtractor={item => item.data}
       />
     </View>
   </View>

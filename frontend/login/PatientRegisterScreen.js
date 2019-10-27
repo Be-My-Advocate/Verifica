@@ -73,9 +73,9 @@ const RegisterScreen = (props) => {
       {!eula && <EULA setEula={setEula} navigation={props.navigation}/>}
       <Text style={styles.title}>Verifica</Text>
       <Text style={styles.secondary}>Create an account to take full advantage of what the app has to offer</Text>
-      <TextBox type={'email'} password={false} label={'Enter Email'} onChange={setEmail}/>
-      <TextBox type={'password'} label={'Enter Password'} password onChange={setPassword}/>
-      <TextBox type={'password'} label={'Retype Password'} password onChange={setPassword2}/>
+      <TextBox type={'email'}  label={'Enter Email'} value={"test@gmail.com"}/>
+      <TextBox type={'password'} label={'Enter Password'} password value={"test@gmail.com"}/>
+      <TextBox type={'password'} label={'Retype Password'} password value={"test@gmail.com"}/>
       {error !== '' && <Text>{error}</Text>}
       <TouchableOpacity style={styles.button} onPress={() => signup()}>
         <Text style={styles.buttonText}>Sign Up</Text>

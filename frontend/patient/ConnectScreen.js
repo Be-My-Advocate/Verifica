@@ -7,10 +7,10 @@ import MessageNavBar from '../MessageNavBar'
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
-    paddingBottom: 20,
+    paddingBottom: 0,
   },
   padHealthRecords: {
-    margin: 20,
+    margin: 0,
   }
 });
 

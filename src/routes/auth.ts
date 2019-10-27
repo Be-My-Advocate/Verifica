@@ -1,5 +1,4 @@
 import * as bcrypt from "bcrypt";
-import * as fnv from 'fnv-plus';
 import { User } from "../entity/user";
 
 export const register = async (req, res) => {

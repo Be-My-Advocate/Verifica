@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
 const TextBox = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{props.label}</Text>
-      <TextInput autoCompleteType={props.type} secureTextEntry={props.password} style={styles.inputBox} onChangeText={props.onChange}/>
+      <Text style={styles.label}>{props.label}</Text> 
+      <TextInput autoCompleteType={props.type} secureTextEntry={props.password} style={styles.inputBox} value={props.value} onChangeText={props.onChange}/>
     </View>
   )
 }
