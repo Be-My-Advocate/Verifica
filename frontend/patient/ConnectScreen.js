@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
 const advocateLocationArray = [
   {
-    id: 3,
+    key: 3,
     username: 'adv',
     password: 'adv',
     fname: 'John',
@@ -35,7 +35,7 @@ const advocateLocationArray = [
     location: { lat: 36.1162, lng: -115.1745 }
   },
   {
-    id: 4,
+    key: 4,
     username: 'ad',
     password: 'ad',
     fname: 'Christina',
@@ -48,7 +48,7 @@ const advocateLocationArray = [
     location: { lat: 36.1279, lng: -115.161 }
   },
   {
-    id: 5,
+    key: 5,
     username: 'aaa',
     password: 'aaa',
     fname: 'Samantha',
@@ -61,7 +61,7 @@ const advocateLocationArray = [
     location: { lat: 36.1196, lng: -115.1581 }
   },
   {
-    id: 6,
+    key: 6,
     username: 'bbb',
     password: 'bbb',
     fname: 'Matt',
@@ -74,7 +74,7 @@ const advocateLocationArray = [
     location: { lat: 36.1136, lng: -115.1621 }
   },
   {
-    id: 7,
+    key: 7,
     username: 'bbb',
     password: 'bbb',
     fname: 'Angelica',
@@ -87,7 +87,7 @@ const advocateLocationArray = [
     location: { lat: 36.1186, lng: -115.1571 }
   },
   {
-    id: 8,
+    key: 8,
     username: 'bbb',
     password: 'bbb',
     fname: 'Brandon',
@@ -100,7 +100,7 @@ const advocateLocationArray = [
     location: { lat: 36.1296, lng: -115.1583 }
   },
   {
-    id: 9,
+    key: 9,
     username: 'bbb',
     password: 'bbb',
     fname: 'Stephanie',
