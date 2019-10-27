@@ -110,13 +110,7 @@ const advocateLocationArray = [
 
 const ConnectScreen = (props) => {
   const [searchText, setSearchText] = React.useState('')
-  // const [toMessage, setToMessage] = React.useState(true)
-  // const [currentAdvocate, setCurrentAdvocate] = React.useState('')
 
-  // const setMessage = (advocate) => {
-  //   setCurrentAdvocate(advocate)
-  //   setToMessage(false)
-  // }
 
   return <View>
 

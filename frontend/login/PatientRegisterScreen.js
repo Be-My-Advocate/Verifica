@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '70%',
-    backgroundColor: '#4B0082',
+    backgroundColor: '#333',
     display:'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -71,7 +71,7 @@ const RegisterScreen = (props) => {
   return (
     <View style={styles.container}>
       {!eula && <EULA setEula={setEula} navigation={props.navigation}/>}
-      <Text style={styles.title}>Be My Advocate</Text>
+      <Text style={styles.title}>Verifica</Text>
       <Text style={styles.secondary}>Create an account to take full advantage of what the app has to offer</Text>
       <TextBox type={'email'} password={false} label={'Enter Email'} onChange={setEmail}/>
       <TextBox type={'password'} label={'Enter Password'} password onChange={setPassword}/>

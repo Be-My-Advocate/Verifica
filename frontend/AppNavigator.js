@@ -6,6 +6,9 @@ import {StyleSheet, Text, Image, View} from 'react-native'
 import HomeScreen from './HomeScreen'
 import PatientNavBar from './PatientNavBar'
 import MessageNavBar from './MessageNavBar'
+import RegisterScreen from './login/RegisterScreen'
+import PatientRegisterScreen from './login/PatientRegisterScreen'
+import LoginScreen from './login/LoginScreen'
 
 const styles = StyleSheet.create({
   image: {width: 20, height: 20, borderColor: 'pink', borderWidth: 1, borderRadius: 12},
@@ -19,10 +22,13 @@ const AppNavigator = createStackNavigator(
     screen: HomeScreen,
     patient: PatientNavBar,
     message: MessageNavBar,
+    login: LoginScreen,
+    patientRegister: PatientRegisterScreen,
+    register: RegisterScreen
     // advocate: AdvocateNavBar,
   },
   {
-    initialRouteName: 'patient',
+    initialRouteName: 'screen',
     defaultNavigationOptions: {
       headerTitle: () => <View style={styles.headerStyle}>
         <Text style={styles.textStyle}>
