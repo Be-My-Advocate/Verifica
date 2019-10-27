@@ -11,18 +11,9 @@ import AdvocateMessage from './connect/AdvocateMessage';
 import MessageScreen from './connect/MessageScreen';
 import MessageNavBar from '../MessageNavBar';
 const styles = StyleSheet.create({
-<<<<<<< HEAD
-  headerText: {
-    fontSize: 22,
-    paddingBottom: 0,
-  },
-  padHealthRecords: {
-    margin: 0,
-=======
   padHealthRecords: {
     marginLeft: 5,
     marginRight: 5
->>>>>>> a62875196211af900d6acf78df7a3067cb7f9db4
   }
 });
 

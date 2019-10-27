@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     color: 'white',
     margin: 12,
     fontSize: 24,
-    fontWeight: '600'
+    fontWeight: '600',
+    textAlign: 'center'
   },
   dialog: {
     fontSize: 24,

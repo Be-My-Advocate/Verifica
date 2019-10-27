@@ -3,13 +3,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import EULA from './EULA';
 import TextBox from '../TextBox';
 import { AsyncStorage } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center'
+    width: '100%',
+    marginLeft: 30
   },
   title: {
     fontSize: 32,
@@ -68,41 +67,49 @@ const RegisterScreen = props => {
   };
 
   return (
-    <View style={styles.container}>
-      {!eula && <EULA setEula={setEula} navigation={props.navigation} />}
-      <Text style={styles.title}>Verifica</Text>
-<<<<<<< HEAD
-      <Text style={styles.secondary}>Create an account to take full advantage of what the app has to offer</Text>
-      <TextBox type={'email'}  label={'Enter Email'} value={"test@gmail.com"}/>
-      <TextBox type={'password'} label={'Enter Password'} password value={"test@gmail.com"}/>
-      <TextBox type={'password'} label={'Retype Password'} password value={"test@gmail.com"}/>
-=======
-      <Text style={styles.secondary}>
-        Create an account to take full advantage of what the app has to offer
-      </Text>
-      <TextBox
-        type={'email'}
-        password={false}
-        label={'Enter Email'}
-        value={'jenni@gmail.com'}
-      />
-      <TextBox
-        type={'password'}
-        label={'Enter Password'}
-        password
-        value={'HCKHLTH'}
-      />
-      <TextBox
-        type={'password'}
-        label={'Retype Password'}
-        password
-        value={'HCKHLTH'}
-      />
->>>>>>> a62875196211af900d6acf78df7a3067cb7f9db4
-      {error !== '' && <Text>{error}</Text>}
-      <TouchableOpacity style={styles.button} onPress={() => signup()}>
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
+    <View>
+      <ScrollView style={styles.container}>
+        {!eula && <EULA setEula={setEula} navigation={props.navigation} />}
+        <Text style={styles.title}>Verifica</Text>
+        <Text style={styles.secondary}>
+          Create an account to take full advantage of what the app has to offer
+        </Text>
+        <TextBox
+          type={'email'}
+          password={false}
+          label={'Enter Email'}
+          value={'jenni@gmail.com'}
+        />
+        <TextBox
+          type={'password'}
+          label={'Enter Password'}
+          password
+          value={'HCKHLTH'}
+        />
+        <TextBox
+          type={'password'}
+          label={'Retype Password'}
+          password
+          value={'HCKHLTH'}
+        />
+        <TextBox type={'text'} label={'Full Name'} value={'Jenni Summit'} />
+        <TextBox type={'password'} label={'SSN'} password value={'111111111'} />
+        <TextBox type={'date'} label={'Date of Birth'} value={'10-27-1997'} />
+        <TextBox
+          type={'text'}
+          label={'Address'}
+          value={'4409 W Bonanza Rd, Las Vegas, NV 89107'}
+        />
+        <TextBox
+          type={'Number'}
+          label={'Phone Number'}
+          value={'702-815-9162'}
+        />
+        {error !== '' && <Text>{error}</Text>}
+        <TouchableOpacity style={styles.button} onPress={() => signup()}>
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
