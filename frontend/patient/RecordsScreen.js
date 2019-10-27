@@ -1,30 +1,49 @@
 import React from 'react'
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
-import VerifyPhone from '../verification/verifyPhone'
-import InfoScreen from '../verification/InfoScreen'
-import AddressScreen from '../verification/AddressScreen'
-import DateScreen from '../verification/DOBScreen'
-
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native'
+import HealthRecords from './records/HealthRecords'
+import MyPatientAdvocates from './records/MyPatientAdvocates'
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
+  topButtons: {
+    flexDirection: 'row',
+    backgroundColor: '#eee',
+    padding: 18,
+    justifyContent: 'space-evenly'
   },
-});
+  textSizes: {
+    fontSize: 20,
+  },
+  padHealthRecords: {
+    margin: 20,
+  }
+})
 
-const Records = (props) => {
-  const [stage, setStage] = React.useState(3)
-  return (
-    <View style={styles.container}>
-      {stage === 1 && <InfoScreen setScreen={setStage}/>}
-      {stage === 2 && <VerifyPhone setScreen={setStage}/>}
-      {stage === 3 && <AddressScreen setScreen={setStage}/>}
-      {stage === 4 && <DateScreen setScreen={setStage}/>}
-    </View>
-  )
+const RecordsScreen = () => {
+  const [searchText, setSearchText] = React.useState('')
+  const [recordButton, toggleRecordButton] = React.useState(true)
+
+  return <View>
+      <View style={styles.topButtons}>
+          <TouchableOpacity
+            onPress={() => toggleRecordButton(!recordButton)}>
+            <Text style={styles.textSizes}>Patient Records</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => toggleRecordButton(!recordButton)}>
+            <Text style={styles.textSizes}>Shared Records</Text>
+          </TouchableOpacity>
+      </View>
+
+    {recordButton
+      ? <View style={styles.padHealthRecords}>
+          <HealthRecords/>
+        </View>
+      : <View style={styles.padHealthRecords}>
+          <MyPatientAdvocates/>
+        </View>
+    }
+
+  </View>
 }
 
-export default Records
+export default RecordsScreen

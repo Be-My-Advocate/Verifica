@@ -8,10 +8,10 @@ export class Message extends BaseEntity {
     id: string;
 
     @ManyToOne(type => User, user => user.sent)
-    sender: User;
+    sender: Promise<User>;
     
     @ManyToOne(type => User, user => user.received)
-    recipient: User;
+    recipient: Promise<User>;
 
     @Column("simple-json")
     cipherMessage: CipherMessage;

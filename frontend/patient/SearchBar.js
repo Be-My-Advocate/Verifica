@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   purple: {
-    backgroundColor: '#4B0082',
+    backgroundColor: '#333',
     flexDirection: 'row',
     alignItems: 'center',
   },

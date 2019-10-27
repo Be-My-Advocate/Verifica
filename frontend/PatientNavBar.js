@@ -1,12 +1,13 @@
 import React from 'react'
 import { createAppContainer } from 'react-navigation';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PatientScreen from './patient/PatientScreen'
 import DirectoryScreen from './patient/DirectoryScreen'
 import RecordsScreen from './patient/RecordsScreen'
 import ConnectScreen from './patient/ConnectScreen'
 import LearnScreen from './patient/LearnScreen'
+import MessageNavBar from './MessageNavBar'
 
 const PatientNavBar = createBottomTabNavigator(
   {
@@ -18,11 +19,11 @@ const PatientNavBar = createBottomTabNavigator(
         )
       },
     },
-    Directory: {
-      screen: DirectoryScreen,
+    Connect: {
+      screen: ConnectScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <FontAwesomeIcon icon="address-book" color={tintColor}/>
+          <FontAwesomeIcon icon="comment-alt" color={tintColor}/>
         )
       }
     },
@@ -34,11 +35,11 @@ const PatientNavBar = createBottomTabNavigator(
         )
       }
     },
-    Connect: {
-      screen: ConnectScreen,
+    Directory: {
+      screen: DirectoryScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <FontAwesomeIcon icon="comment-alt" color={tintColor}/>
+          <FontAwesomeIcon icon="address-book" color={tintColor}/>
         )
       }
     },
@@ -60,13 +61,13 @@ const PatientNavBar = createBottomTabNavigator(
       gesturesEnabled: false,
     },
     tabBarOptions: {
-      inactiveBackgroundColor: '#4B0082',
+      inactiveBackgroundColor: '#333',
       inactiveTintColor: 'white',
-      headerTintColor: '#4B0082',
+      headerTintColor: '#333',
       activeBackgroundColor: 'white',
-      activeTintColor: '#4B0082',
+      activeTintColor: '#333',
       style: {
-        backgroundColor: '#4B0082',
+        backgroundColor: '#333',
       },
     }
   }
