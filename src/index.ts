@@ -3,6 +3,7 @@ import "reflect-metadata";
 import * as session from 'express-session';
 import { register, login } from './routes/auth';
 import { keys, sendMessage } from './routes/signal';
+import { startVideoRoom } from "./routes/video";
 
 (async () => {
     await createConnection();
@@ -29,6 +30,8 @@ import { keys, sendMessage } from './routes/signal';
     app.post('/keys', keys)
     // app.get('/users')
     app.post('/users/:user/send', sendMessage)
+
+    app.post('/users/:user/video', startVideoRoom);
 
     app.listen(port);
     console.log('Server started! At http://localhost:' + port);

@@ -16,8 +16,9 @@ export interface Room {
 
 export class VideoCallManager {
     private static axios: AxiosInstance = Axios.create({
-        baseURL: "https://harryhong.daily.co/v1",
+        baseURL: "https://api.daily.co/v1",
         headers: {
+            "Content-Type": "application/json",
             "Authorization": "Bearer " + constants.DAILY_CO_API_KEY
         },
     });
@@ -74,7 +75,8 @@ export class VideoCallManager {
                 enable_chat: true,
             }
         });
-        if (roomCreationResponse.status === 400) {
+        console.log(roomCreationResponse.data);
+        if (roomCreationResponse.status !== 200) {
             console.log("VideoCallManager: Room creation failed");
             return null;
         }
@@ -82,9 +84,10 @@ export class VideoCallManager {
         const room: Room = roomCreationResponse.data;
 
         const meetingTokenResponse = await VideoCallManager.axios.post("/meeting-tokens", {
-            room_name: roomName,
+            properties: { room_name: roomName },
         });
-        if (meetingTokenResponse.status === 400) {
+        console.log(meetingTokenResponse.data);
+        if (meetingTokenResponse.status !== 200) {
             console.log("VideoCallManager: Failed to add meeting token to existing room");
             return null;
         }
